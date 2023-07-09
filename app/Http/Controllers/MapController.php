@@ -2,13 +2,21 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\State;
 use Illuminate\Http\Request;
 
 class MapController extends Controller
 {
     public function index()
     {
-        return view('roles');
+        // return view('roles');
+
+        $states = State::all();
+
+        foreach ($states as $state) {
+            $localGovtCount = $state->localGovernmentsCount();
+            echo$localGovtCount;
+        }
     }
 
     public function getLgaData(Request $request)
