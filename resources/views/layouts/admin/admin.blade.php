@@ -20,7 +20,8 @@
 		<link rel="stylesheet" href="{{ asset('css/bootstrap.min.css')}}"/>
 		<link rel="stylesheet" href="{{ asset('fonts/icomoon/icomoon.css')}}"/>
 		<link rel="stylesheet" href="{{ asset('css/main.css')}}"/>
-
+		<link rel="stylesheet" href="{{ asset('css/map.css')}}"/>
+		
 		<!-- Other CSS includes plugins - Cleanedup unnecessary CSS -->
 		<!-- Chartist css -->
 		<link href="{{ asset('vendor/chartist/css/chartist.min.css" rel="stylesheet')}}"/>
@@ -31,16 +32,40 @@
 		<link rel="stylesheet" href="{{ asset('vendor/datatables/dataTables.bs4-custom.css')}}"/>		
 
 
-        <script src='https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.js'></script>
-        <link href='https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.css' rel='stylesheet' />
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+		integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+		crossorigin=""/>
+		<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+		integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+		crossorigin=""></script>
 
-
+		<script src="https://cdn.jsdelivr.net/npm/leaflet-ajax/dist/leaflet.ajax.min.js"></script>
 	</head>
 	<body>
 
         @include('layouts.admin.loader')
+    <!-- BEGIN .app-wrap -->
 
+    <div class="app-wrap">
+
+        @include('layouts.admin.header')
+        <!-- BEGIN .app-container -->
+        <div class="app-container">
+            <!-- BEGIN .app-side -->
+
+            @include('layouts.admin.sidebar')
+            <!-- END: .app-side -->
+
+            <!-- BEGIN .app-main -->
         @yield('content')
+	</div>
+	 <!-- BEGIN .main-footer -->
+	 <footer class="main-footer fixed-btm">
+		Copyright Unify Admin 2017.
+	</footer>
+	<!-- END: .main-footer -->
+	</div>
+    <!-- END: .app-wrap -->
 
 
         	<!-- jQuery first, then Tether, then other JS. -->
